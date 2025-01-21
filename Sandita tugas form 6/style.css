@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Warna latar belakang halaman */
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header .menu a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header .menu a:hover {
+    color: #ff9800;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh; /* Tinggi minimal sesuai layar */
+    overflow: hidden; /* Hilangkan scroll jika sidebar aktif */
+}
+
+.sidebar {
+    display: none; /* Sidebar disembunyikan secara default */
+    width: 250px;
+    background: linear-gradient(180deg, #444, #222);
+    color: #fff;
+    height: 100vh;
+    padding: 1.5rem;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    position: fixed; /* Tetap di posisi saat scrolling */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    overflow-y: auto; /* Sidebar bisa di-scroll jika kontennya panjang */
+    transition: transform 0.3s ease;
+    transform: translateX(-100%); /* Posisi awal sidebar */
+}
+
+.sidebar.active {
+    display: block;
+    transform: translateX(0); /* Sidebar muncul */
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ff9800;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.sidebar a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #ff9800;
+    color: #222;
+}
+
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    margin-left: 250px; /* Ruang untuk sidebar jika ditampilkan */
+    transition: margin-left 0.3s ease;
+}
+
+.hamburger {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1100; /* Di atas sidebar */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.hamburger:hover {
+    background-color: #ff9800;
+}
